@@ -1,7 +1,7 @@
 from django.db import models
 from contrato.models import Contrato
 
-class Pagamento(object):
+class Pagamento(models.Model):
 	
 	valor = models.FloatField(null=True, blank=True)
 	parcela = models.IntegerField()
