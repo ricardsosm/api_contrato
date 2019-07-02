@@ -17,11 +17,17 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from contrato.api.viewsets import ContratoViewSet
+from pagamento.api.viewsets import PagamentoViewSet
+from cliente.api.viewsets import ClienteViewSet
+from rest_framework.authtoken import views
 
 router = routers.DefaultRouter()
 router.register(r'contrato', ContratoViewSet)
+router.register(r'pagamento', PagamentoViewSet)
+router.register(r'cliente', ClienteViewSet)
 
 urlpatterns = [
 	path('',include(router.urls)),
     path('admin/', admin.site.urls),
+	path('api-token/', views.obtain_auth_token),
 ]
