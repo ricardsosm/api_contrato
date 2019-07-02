@@ -13,7 +13,7 @@ class Cliente(models.Model):
 	update_at = models.DateTimeField(
 		'Atualizado em',auto_now=True
 	)
-	user = models.OneToOneField(User, on_delete=models.CASCADE)
+	user = models.ManyToManyField(User)
 
 
 	def set(self,pk):

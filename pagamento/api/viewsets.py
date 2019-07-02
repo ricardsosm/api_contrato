@@ -17,14 +17,10 @@ class PagamentoViewSet(viewsets.ModelViewSet):
     authentication_classes = (TokenAuthentication,)
 
     def get_queryset(self):
-    	user =  User.objects.get(id=self.request.user.id)
-    	print('user ', user)
-    	cli = Cliente.objects.filter(user=user or None)
-    	if cli:
-    		con = Contrato.objects.filter(id_cliente = cli.id)
-    		print('cli ', cli.id)
-    		if con:
-    			self.queryset = Pagamento.objects.filters(id_contrato = con.id)
-    		return self.queryset
-    	else:
-	    	return None
+        username = self.request._user
+        user = User.objects.get(username=username)
+        cli = Cliente.objects.filter(user=user)
+        if cli:
+            self.queryset = Pagamento.objects.all()
+            return self.queryset
+

@@ -22,7 +22,7 @@ from cliente.api.viewsets import ClienteViewSet
 from rest_framework.authtoken import views
 
 router = routers.DefaultRouter()
-router.register(r'contrato', ContratoViewSet)
+router.register(r'contrato', ContratoViewSet, base_name='Contrato')
 router.register(r'pagamento', PagamentoViewSet)
 router.register(r'cliente', ClienteViewSet)
 

@@ -8,9 +8,6 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-        ('usuario', '0001_initial'),
-    ]
 
     operations = [
         migrations.CreateModel(
@@ -22,7 +19,6 @@ class Migration(migrations.Migration):
                 ('tel', models.CharField(blank=True, max_length=20, null=True, verbose_name='Telefone')),
                 ('create_at', models.DateTimeField(auto_now_add=True, verbose_name='Criando em')),
                 ('update_at', models.DateTimeField(auto_now=True, verbose_name='Atualizado em')),
-                ('id_usuario', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='usuario.Usuario')),
             ],
         ),
     ]

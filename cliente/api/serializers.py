@@ -4,4 +4,4 @@ from cliente.models import Cliente
 class ClienteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cliente
-        fields = ( 'nome', 'cpf','tel')
+        fields = ( 'id','nome','cpf','tel','user')
